@@ -1,0 +1,6 @@
+---
+applications
+- name: loginService
+  memory: 513mb
+  instances: 1
+

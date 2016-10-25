@@ -1,0 +1,9 @@
+---
+spring:
+    application:
+        name: myPortal
+    #datasource:
+    #    driverClassName: com.mysql.jdbc.Driver
+    #    url: jdbc:mysql://localhost/myDb
+server:
+    port: 9000
