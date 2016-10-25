@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html ng-app="app" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -9,18 +9,38 @@
     <title></title>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-route.min.js"></script>
+    <script src="/js/angular-cookies.min.js"></script>
+
     <script src="/app/app.js"></script>
+    <script src="/app/services/service.authentication.js"></script>
+    <script src="/app/services/service.user.js"></script>
+
+    <!-- Fake user service for demo that uses local storage -->
+    <script src="/app/services/service.user.local-storage.js"></script>
+
+    <script src="/controllers/loginController.js"></script>
+    <script src="/controllers/registerController.js"></script>
 </head>
 
-<body ng-app="onboardingPortal" ng-controller="loginController">
-    <div class="container-fluid">
-          <h1>My Portal</h1>
-          <div ng-view></div>
-    </div>
+<body class="container">
+
+    <header>
+        <ul class="nav nav-tabs">
+            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+            <li><a href="/login" target="_self">Logout</a></li>
+        </ul>
+        <div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+        </div>
+    </header>
+
+    <div ng-view></div>
 
 </body>
 
