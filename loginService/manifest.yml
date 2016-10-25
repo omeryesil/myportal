@@ -1,6 +1,9 @@
 ---
-applications
-- name: loginService
-  memory: 513mb
-  instances: 1
 
+applications:
+- name: spring-boot-cli-jar-application
+  memory: 768M
+  instances: 1
+  path: build/libs/loginService-1.0-SNAPSHOT.jar
+  #buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  stack: cflinuxfs2
